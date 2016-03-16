@@ -1,3 +1,6 @@
+typings/
+tmp/
+
 # Logs
 logs
 *.log
