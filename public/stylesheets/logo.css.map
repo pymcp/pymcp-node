@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,KAAM;EACJ,OAAO,EAAE,KAAK;EACd,MAAM,EAAE,MAAM;EAEd,UAAK;IACH,MAAM,EAAE,KAAK;IACb,YAAY,EAAE,CAAC;IACf,IAAI,EAAE,IAAI;EAGZ,SAAI;IACF,SAAS,EAAE,iBAAiB",
+"sources": ["../../sass/logo.scss"],
+"names": [],
+"file": "logo.css"
+}

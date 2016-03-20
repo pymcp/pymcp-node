@@ -1,0 +1,11 @@
+#logo {
+  display: block;
+  margin: 0 auto; }
+  #logo path {
+    stroke: black;
+    stroke-width: 2;
+    fill: none; }
+  #logo .py {
+    animation: fadein ease-in 2s; }
+
+/*# sourceMappingURL=logo.css.map */

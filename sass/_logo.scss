@@ -1,0 +1,18 @@
+#logo {
+  display: block;
+  margin: 0 auto;
+
+  path {
+    stroke: black;
+    stroke-width: 2;
+    fill: none;
+  }
+
+  .py {
+    animation: fadein ease-in 2s;
+  }
+
+  .draw {
+    visibility: hidden;
+  }
+}

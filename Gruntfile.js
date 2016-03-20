@@ -1,13 +1,22 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    concat: {
+      options: {
+        separator: ';',
+      },
+      dist: {
+        src: ['javascripts/logo.js'],
+        dest: 'public/javascripts/main.js'
+      }
+    },
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
       build: {
-        src: './public/javascripts/',
-        dest: './public/javascripts/<%= pkg.name %>.min.js'
+        src: './public/javascripts/main.js',
+        dest: './public/javascripts/main.min.js'
       }
     },
     sass: {
@@ -26,7 +35,7 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
-  //grunt.registerTask('default', ['uglify', 'sass']);
-  grunt.registerTask('default', ['sass']);
+  grunt.registerTask('default', ['concat', 'uglify', 'sass']);
 };
