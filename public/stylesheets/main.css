@@ -18,7 +18,7 @@
   display: block;
   margin: 0 auto; }
   #logo path {
-    stroke: #002270;
+    stroke: #FFF;
     stroke-width: 2;
     fill: none; }
   #logo .py {
@@ -28,6 +28,23 @@
 
 body {
   font: 100% Helvetica, sans-serif;
-  color: #002270; }
+  color: #002270;
+  background-color: #DBE6FF;
+  margin: 0;
+  padding: 0; }
+  body header {
+    background-color: #002C91; }
+  body section#global {
+    width: 976px;
+    margin: 0 auto;
+    padding: 1em 1em; }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      body section#global {
+        width: 700px; } }
+    @media (min-width: 480px) and (max-width: 767px) {
+      body section#global {
+        width: 400px; } }
+    body section#global *:first-child {
+      margin-top: 0; }
 
 /*# sourceMappingURL=main.css.map */
