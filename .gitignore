@@ -1,5 +1,6 @@
 typings/
 tmp/
+.sass-cache
 
 # Logs
 logs
