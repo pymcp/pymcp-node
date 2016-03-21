@@ -37,10 +37,13 @@ body {
   padding: 0; }
   body header {
     background-color: #002C91; }
+  body h1, body h2, body h3, body h4, body h5 {
+    color: #002C91;
+    margin-bottom: 0; }
   body main {
     width: 976px;
     margin: 0 auto;
-    padding: 5px 5px; }
+    padding: 10px 10px; }
     @media (min-width: 768px) and (max-width: 1023px) {
       body main {
         width: 700px; } }
@@ -51,10 +54,10 @@ body {
       margin-top: 0; }
     body main > nav {
       float: left;
-      width: 266px; }
+      width: 256px; }
       @media (min-width: 768px) and (max-width: 1023px) {
         body main > nav {
-          width: 210px; } }
+          width: 200px; } }
       @media (max-width: 767px) {
         body main > nav {
           width: 100%;
@@ -64,7 +67,8 @@ body {
     width: 700px;
     background-color: #FFF;
     border-radius: 5px 5px 5px 5px;
-    padding: 5px 5px; }
+    padding: 10px 10px;
+    box-shadow: 0px 0px 2px #002C91; }
     @media (min-width: 768px) and (max-width: 1023px) {
       body article {
         width: 480px; } }

@@ -1,8 +1,8 @@
 $font-stack: Helvetica, sans-serif;
 $white: #FFF;
 
-$gutter-v: 5px;
-$gutter-h: 5px;
+$gutter-v: 10px;
+$gutter-h: 10px;
 $gutter: $gutter-v $gutter-h;
 
 $radius-tl: 5px;
@@ -10,6 +10,8 @@ $radius-tr: 5px;
 $radius-bl: 5px;
 $radius-br: 5px;
 $radius: $radius-tl $radius-tr $radius-br $radius-bl;
+
+$shadow: 0px 0px 2px $color-primary-3;
 
 $global-width: 976px; 
 $global-width-t: 700px; 
