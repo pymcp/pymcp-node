@@ -3,6 +3,10 @@
 @import '_animations';
 @import '_logo';
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font: 100% $font-stack;
   color: $color-primary-4;
@@ -14,21 +18,52 @@ body {
     background-color: $color-primary-3;
   }
 
-  section#global {
-    width: 976px;
+  main {
+    width: $global-width;
     margin: 0 auto;
-    padding: $gutter-v $gutter-h;
+    padding: $gutter;
 
     @include tablet {
-      width: 700px;
+      width: $global-width-t;
     }
 
     @include phone {
-      width: 400px;
+      width: 100%;
     }
 
     *:first-child {
       margin-top: 0;
+    }
+
+    >nav {
+      float: left;
+      width: $global-width - $article-width - ($gutter-h * 2); 
+
+      @include tablet {
+        width: $global-width-t - $article-width-t - ($gutter-h * 2); 
+      }
+
+      @include phone {
+        width: 100%;
+        float: none;
+      }
+    }
+  }
+
+  article {
+    float: right;
+    width: $article-width;
+    background-color: $white;
+    border-radius: $radius;
+    padding: $gutter;
+
+    @include tablet {
+      width: $article-width-t;
+    } 
+
+    @include phone {
+      float: none;
+      width: 100%;
     }
   }
 }

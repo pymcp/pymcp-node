@@ -1,15 +1,27 @@
-$font-stack:    Helvetica, sans-serif;
+$font-stack: Helvetica, sans-serif;
 $white: #FFF;
 
-$gutter-v: 1em;
-$gutter-h: 1em;
+$gutter-v: 5px;
+$gutter-h: 5px;
+$gutter: $gutter-v $gutter-h;
 
-$phone-width: 480px;
+$radius-tl: 5px;
+$radius-tr: 5px;
+$radius-bl: 5px;
+$radius-br: 5px;
+$radius: $radius-tl $radius-tr $radius-br $radius-bl;
+
+$global-width: 976px; 
+$global-width-t: 700px; 
+
+$article-width: 700px;
+$article-width-t: 480px; 
+
 $tablet-width: 768px;
 $desktop-width: 1024px;
 
 @mixin phone {
-  @media (min-width: #{$phone-width}) and (max-width: #{$tablet-width - 1px}) {
+  @media (max-width: #{$tablet-width - 1px}) {
     @content;
   }
 }

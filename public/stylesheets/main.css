@@ -26,6 +26,9 @@
   #logo .draw {
     visibility: hidden; }
 
+* {
+  box-sizing: border-box; }
+
 body {
   font: 100% Helvetica, sans-serif;
   color: #002270;
@@ -34,17 +37,40 @@ body {
   padding: 0; }
   body header {
     background-color: #002C91; }
-  body section#global {
+  body main {
     width: 976px;
     margin: 0 auto;
-    padding: 1em 1em; }
+    padding: 5px 5px; }
     @media (min-width: 768px) and (max-width: 1023px) {
-      body section#global {
+      body main {
         width: 700px; } }
-    @media (min-width: 480px) and (max-width: 767px) {
-      body section#global {
-        width: 400px; } }
-    body section#global *:first-child {
+    @media (max-width: 767px) {
+      body main {
+        width: 100%; } }
+    body main *:first-child {
       margin-top: 0; }
+    body main > nav {
+      float: left;
+      width: 266px; }
+      @media (min-width: 768px) and (max-width: 1023px) {
+        body main > nav {
+          width: 210px; } }
+      @media (max-width: 767px) {
+        body main > nav {
+          width: 100%;
+          float: none; } }
+  body article {
+    float: right;
+    width: 700px;
+    background-color: #FFF;
+    border-radius: 5px 5px 5px 5px;
+    padding: 5px 5px; }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      body article {
+        width: 480px; } }
+    @media (max-width: 767px) {
+      body article {
+        float: none;
+        width: 100%; } }
 
 /*# sourceMappingURL=main.css.map */
