@@ -11,28 +11,27 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var AppComponent;
+    var NewPostComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
-                    this.title = 'test';
+            NewPostComponent = (function () {
+                function NewPostComponent() {
                 }
-                AppComponent = __decorate([
+                NewPostComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-app',
-                        template: '<new-post></new-post>'
+                        selector: 'new-post',
+                        template: "\n    <article>\n      <h1>New Post</h1>\n      <small>Create a new post</small>\n      <input name=\"subject\"/>\n      <textarea name=\"message\"></textarea>\n    </article>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                ], NewPostComponent);
+                return NewPostComponent;
             }());
-            exports_1("AppComponent", AppComponent);
+            exports_1("NewPostComponent", NewPostComponent);
         }
     }
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=new-post.component.js.map
