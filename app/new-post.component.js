@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', 'angular2/common'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,23 +10,42 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, http_1, common_1;
     var NewPostComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
+            },
+            function (common_1_1) {
+                common_1 = common_1_1;
             }],
         execute: function() {
             NewPostComponent = (function () {
-                function NewPostComponent() {
+                function NewPostComponent(http) {
+                    this.http = http;
                 }
+                NewPostComponent.prototype.newPost = function (data) {
+                    try {
+                        this.http.post('/posts', {})
+                            .subscribe(function (res) { return res.json(); }, function (error) { return console.log(error); });
+                        console.log(data);
+                    }
+                    catch (er) {
+                        console.log(er);
+                    }
+                };
                 NewPostComponent = __decorate([
                     core_1.Component({
+                        directives: [common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES],
+                        viewProviders: [http_1.HTTP_PROVIDERS],
                         selector: 'new-post',
-                        template: "\n    <article>\n      <h1>New Post</h1>\n      <small>Create a new post</small>\n      <input name=\"subject\"/>\n      <textarea name=\"message\"></textarea>\n    </article>\n  "
+                        template: "\n    <form #f=\"ngForm\" (submit)=\"newPost(f)\">\n      <div ngControlGroup=\"newPost\">\n        <h1>New Post</h1>\n        <small>Create a new post</small>\n        <input name=\"subject\" ngControl=\"subject\"/>\n        <textarea name=\"message\" ngControl=\"message\"></textarea>\n        <input type=\"submit\" value=\"Post\"/>\n      </div>\n    </form>\n  "
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [http_1.Http])
                 ], NewPostComponent);
                 return NewPostComponent;
             }());
