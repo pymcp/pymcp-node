@@ -43,7 +43,8 @@ body {
   body main {
     width: 976px;
     margin: 0 auto;
-    padding: 10px 10px; }
+    padding: 10px 10px;
+    overflow: hidden; }
     @media (min-width: 768px) and (max-width: 1023px) {
       body main {
         width: 700px; } }
@@ -62,6 +63,16 @@ body {
         body main > nav {
           width: 100%;
           float: none; } }
+    body main::before {
+      content: "";
+      display: block;
+      background: linear-gradient(to top, #DBE6FF, #FFF);
+      position: absolute;
+      height: 300px;
+      left: 0;
+      width: 100%;
+      margin-top: -10px;
+      z-index: -1; }
   body article {
     float: right;
     width: 700px;

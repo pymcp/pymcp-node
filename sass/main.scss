@@ -27,6 +27,7 @@ body {
     width: $global-width;
     margin: 0 auto;
     padding: $gutter;
+    overflow: hidden;
 
     @include tablet {
       width: $global-width-t;
@@ -52,6 +53,18 @@ body {
         width: 100%;
         float: none;
       }
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      background: linear-gradient(to top, $color-primary-1, $white); 
+      position: absolute;
+      height: 300px;
+      left: 0;
+      width: 100%; 
+      margin-top: -$gutter-v;
+      z-index: -1;
     }
   }
 
