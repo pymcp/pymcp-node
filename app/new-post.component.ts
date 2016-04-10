@@ -24,7 +24,7 @@ export class NewPostComponent {
 
   newPost(data) {
   try {
-    this.http.post('/posts', {})
+    this.http.put('/posts', {})
       .subscribe(
         res => res.json(),
         error => console.log(error)

@@ -30,7 +30,7 @@ System.register(['angular2/core', 'angular2/http', 'angular2/common'], function(
                 }
                 NewPostComponent.prototype.newPost = function (data) {
                     try {
-                        this.http.post('/posts', {})
+                        this.http.put('/posts', {})
                             .subscribe(function (res) { return res.json(); }, function (error) { return console.log(error); });
                         console.log(data);
                     }
