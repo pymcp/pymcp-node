@@ -5,6 +5,31 @@ html
     //- link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/main.css')
     meta(name='viewport', content='width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0')
+
+    // Angular Requirements
+    script(src="node_modules/es6-shim/es6-shim.min.js")
+    script(src="node_modules/systemjs/dist/system-polyfills.js")
+    script(src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js")
+
+    script(src="node_modules/angular2/bundles/angular2-polyfills.js")
+    script(src="node_modules/systemjs/dist/system.src.js")
+    script(src="node_modules/rxjs/bundles/Rx.js")
+    script(src="node_modules/angular2/bundles/angular2.dev.js")
+    script(src="node_modules/angular2/bundles/router.dev.js")
+
+    // Configure SystemJS
+    script. 
+      System.config({
+        packages: {        
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('app/main')
+            .then(null, console.error.bind(console));
+      
   body
     header
       svg(width='140', height='60', viewbox='0 0 140 60', id='logo')
