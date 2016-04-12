@@ -43,7 +43,6 @@ System.register(['angular2/router', 'angular2/core', 'angular2/http', 'angular2/
                 NewPostComponent = __decorate([
                     core_1.Component({
                         directives: [common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES],
-                        viewProviders: [http_1.HTTP_PROVIDERS],
                         selector: 'new-post',
                         template: "\n    <form #f=\"ngForm\" (submit)=\"newPost(f)\">\n      <div ngControlGroup=\"newPost\">\n        <h1>New Post</h1>\n        <small>Create a new post</small>\n        <input name=\"subject\" ngControl=\"subject\"/>\n        <textarea name=\"message\" ngControl=\"message\"></textarea>\n        <input type=\"submit\" value=\"Post\"/>\n      </div>\n    </form>\n  "
                     }), 

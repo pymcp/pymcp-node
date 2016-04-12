@@ -2,6 +2,7 @@ import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router'
 import {Component} from 'angular2/core';
 import {NewPostComponent} from './new-post.component';
 import {Utils} from './utils';
+import {HTTP_PROVIDERS} from 'angular2/http';
 
 @Component({
   selector: 'pymcp-app',
@@ -10,6 +11,7 @@ import {Utils} from './utils';
     ROUTER_DIRECTIVES
   ],
   providers: [
+    HTTP_PROVIDERS,
     ROUTER_PROVIDERS,
     Utils
   ]
