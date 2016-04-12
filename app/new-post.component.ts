@@ -1,9 +1,11 @@
 import {Component} from 'angular2/core';
 import {Http, HTTP_PROVIDERS} from 'angular2/http';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
+import {Utils} from './utils';
 
 @Component({
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES],
+  providers: [Utils],
   viewProviders: [HTTP_PROVIDERS],
   selector: 'new-post',
   template: `
@@ -19,17 +21,14 @@ import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
   `
 })
 export class NewPostComponent {
-  constructor(public http: Http) {
+  constructor(public http: Http, public utils: Utils) {
   }
 
-  newPost(data) {
-  try {
-    this.http.put('/posts', {})
+  newPost(form) {
+    this.http.put('/posts', this.utils.params(form.value.newPost), this.utils.headers.www) 
       .subscribe(
         res => res.json(),
         error => console.log(error)
       );
-    console.log(data);
-  }catch(er){console.log(er)}
   }
 }

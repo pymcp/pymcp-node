@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http', 'angular2/common'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', 'angular2/common', './utils'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/http', 'angular2/common'], function(
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, common_1;
+    var core_1, http_1, common_1, utils_1;
     var NewPostComponent;
     return {
         setters:[
@@ -22,30 +22,29 @@ System.register(['angular2/core', 'angular2/http', 'angular2/common'], function(
             },
             function (common_1_1) {
                 common_1 = common_1_1;
+            },
+            function (utils_1_1) {
+                utils_1 = utils_1_1;
             }],
         execute: function() {
             NewPostComponent = (function () {
-                function NewPostComponent(http) {
+                function NewPostComponent(http, utils) {
                     this.http = http;
+                    this.utils = utils;
                 }
-                NewPostComponent.prototype.newPost = function (data) {
-                    try {
-                        this.http.put('/posts', {})
-                            .subscribe(function (res) { return res.json(); }, function (error) { return console.log(error); });
-                        console.log(data);
-                    }
-                    catch (er) {
-                        console.log(er);
-                    }
+                NewPostComponent.prototype.newPost = function (form) {
+                    this.http.put('/posts', this.utils.params(form.value.newPost), this.utils.headers.www)
+                        .subscribe(function (res) { return res.json(); }, function (error) { return console.log(error); });
                 };
                 NewPostComponent = __decorate([
                     core_1.Component({
                         directives: [common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES],
+                        providers: [utils_1.Utils],
                         viewProviders: [http_1.HTTP_PROVIDERS],
                         selector: 'new-post',
                         template: "\n    <form #f=\"ngForm\" (submit)=\"newPost(f)\">\n      <div ngControlGroup=\"newPost\">\n        <h1>New Post</h1>\n        <small>Create a new post</small>\n        <input name=\"subject\" ngControl=\"subject\"/>\n        <textarea name=\"message\" ngControl=\"message\"></textarea>\n        <input type=\"submit\" value=\"Post\"/>\n      </div>\n    </form>\n  "
                     }), 
-                    __metadata('design:paramtypes', [http_1.Http])
+                    __metadata('design:paramtypes', [http_1.Http, utils_1.Utils])
                 ], NewPostComponent);
                 return NewPostComponent;
             }());
