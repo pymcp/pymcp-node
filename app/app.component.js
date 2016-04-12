@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/router', 'angular2/core', './new-post.component', './utils'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,23 +10,46 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var router_1, core_1, new_post_component_1, utils_1;
     var AppComponent;
     return {
         setters:[
+            function (router_1_1) {
+                router_1 = router_1_1;
+            },
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (new_post_component_1_1) {
+                new_post_component_1 = new_post_component_1_1;
+            },
+            function (utils_1_1) {
+                utils_1 = utils_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.title = 'test';
                 }
                 AppComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-app',
-                        template: '<new-post></new-post>'
-                    }), 
+                        selector: 'pymcp-app',
+                        template: 'hello <router-outlet></router-outlet>',
+                        directives: [
+                            router_1.ROUTER_DIRECTIVES
+                        ],
+                        providers: [
+                            router_1.ROUTER_PROVIDERS,
+                            utils_1.Utils
+                        ]
+                    }),
+                    router_1.RouteConfig([
+                        {
+                            path: '/',
+                            name: 'Posts',
+                            component: new_post_component_1.NewPostComponent,
+                            useAsDefault: true
+                        }
+                    ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
                 return AppComponent;

@@ -1,11 +1,26 @@
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
-import { Component } from 'angular2/core';
-import { NewPostComponent } from './new-post.component';
+import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
+import {Component} from 'angular2/core';
+import {NewPostComponent} from './new-post.component';
+import {Utils} from './utils';
 
 @Component({
-  selector: 'my-app',
-  template: '<new-post></new-post>'
+  selector: 'pymcp-app',
+  template: 'hello <router-outlet></router-outlet>',
+  directives: [
+    ROUTER_DIRECTIVES
+  ],
+  providers: [
+    ROUTER_PROVIDERS,
+    Utils
+  ]
 })
-export class AppComponent {
-  title = 'test';
+@RouteConfig([
+  {
+    path: '/',
+    name: 'Posts',
+    component: NewPostComponent,
+    useAsDefault: true
+  }
+])
+export class AppComponent implements OnInit {
 }
