@@ -20,7 +20,7 @@ import {Utils} from './utils';
   `
 })
 export class NewPostComponent {
-  constructor(public http: Http, private _router: Router, public utils: Utils, ) {
+  constructor(public http: Http, private _router: Router, public utils: Utils) {
   }
 
   newPost(form) {

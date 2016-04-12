@@ -1,4 +1,4 @@
-System.register(['angular2/router', 'angular2/core', './new-post.component', './utils', 'angular2/http'], function(exports_1, context_1) {
+System.register(['angular2/router', 'angular2/core', './new-post.component', './posts.component', './utils', 'angular2/http'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/router', 'angular2/core', './new-post.component', './
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var router_1, core_1, new_post_component_1, utils_1, http_1;
+    var router_1, core_1, new_post_component_1, posts_component_1, utils_1, http_1;
     var AppComponent;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(['angular2/router', 'angular2/core', './new-post.component', './
             },
             function (new_post_component_1_1) {
                 new_post_component_1 = new_post_component_1_1;
+            },
+            function (posts_component_1_1) {
+                posts_component_1 = posts_component_1_1;
             },
             function (utils_1_1) {
                 utils_1 = utils_1_1;
@@ -50,8 +53,13 @@ System.register(['angular2/router', 'angular2/core', './new-post.component', './
                         {
                             path: '/',
                             name: 'Posts',
-                            component: new_post_component_1.NewPostComponent,
+                            component: posts_component_1.PostsComponent,
                             useAsDefault: true
+                        },
+                        {
+                            path: '/new-post',
+                            name: 'New Post',
+                            component: new_post_component_1.NewPostComponent
                         }
                     ]), 
                     __metadata('design:paramtypes', [])
