@@ -4,6 +4,7 @@ import {NewPostComponent} from './new-post.component';
 import {PostsComponent} from './posts.component';
 import {Utils} from './utils';
 import {HTTP_PROVIDERS} from 'angular2/http';
+import {PostService} from './post.service';
 
 @Component({
   selector: 'pymcp-app',
@@ -14,7 +15,8 @@ import {HTTP_PROVIDERS} from 'angular2/http';
   providers: [
     HTTP_PROVIDERS,
     ROUTER_PROVIDERS,
-    Utils
+    Utils,
+    PostService,
   ]
 })
 @RouteConfig([

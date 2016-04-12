@@ -1,0 +1,12 @@
+import {Injectable} from 'angular2/core';
+import {Http} from 'angular2/http';
+
+@Injectable()
+export class PostService {
+  constructor(public http: Http) {
+  }
+  
+  getPosts() {
+    return this.http.get('/posts') 
+  }
+}

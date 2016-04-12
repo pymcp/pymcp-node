@@ -1,4 +1,4 @@
-System.register(['angular2/router', 'angular2/core', 'angular2/http', './utils'], function(exports_1, context_1) {
+System.register(['angular2/router', 'angular2/core', 'angular2/http', './utils', './post.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/router', 'angular2/core', 'angular2/http', './utils']
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var router_1, core_1, http_1, utils_1;
+    var router_1, core_1, http_1, utils_1, post_service_1;
     var PostsComponent;
     return {
         setters:[
@@ -25,19 +25,30 @@ System.register(['angular2/router', 'angular2/core', 'angular2/http', './utils']
             },
             function (utils_1_1) {
                 utils_1 = utils_1_1;
+            },
+            function (post_service_1_1) {
+                post_service_1 = post_service_1_1;
             }],
         execute: function() {
             PostsComponent = (function () {
-                function PostsComponent(http, _router, utils) {
+                function PostsComponent(http, _router, utils, _postService) {
                     this.http = http;
                     this._router = _router;
                     this.utils = utils;
+                    this._postService = _postService;
                 }
+                PostsComponent.prototype.ngOnInit = function () {
+                    this.getPosts();
+                };
+                PostsComponent.prototype.getPosts = function () {
+                    var _this = this;
+                    this._postService.getPosts().subscribe(function (res) { return _this.posts = res.json(); }, function (error) { return console.log(error); });
+                };
                 PostsComponent = __decorate([
                     core_1.Component({
-                        template: "\n    <div>These are my posts</div>\n  "
+                        template: "\n    <div>These are my posts</div>\n    <ul>\n      <li *ngFor=\"#post of posts\">{{post.subject}}</li>\n    </ul>\n  "
                     }), 
-                    __metadata('design:paramtypes', [http_1.Http, router_1.Router, utils_1.Utils])
+                    __metadata('design:paramtypes', [http_1.Http, router_1.Router, utils_1.Utils, post_service_1.PostService])
                 ], PostsComponent);
                 return PostsComponent;
             }());
