@@ -46,7 +46,7 @@ System.register(['angular2/router', 'angular2/core', 'angular2/http', './utils',
                 };
                 PostsComponent = __decorate([
                     core_1.Component({
-                        template: "\n    <div>These are my posts</div>\n    <ul>\n      <li *ngFor=\"#post of posts\">{{post.subject}}</li>\n    </ul>\n  "
+                        template: "\n    <article *ngFor=\"#post of posts\">\n      <h1>{{post.subject}}</h1>\n      <small>test</small>\n      <p>\n        {{post.message}}\n      </p>\n    </article>\n  "
                     }), 
                     __metadata('design:paramtypes', [http_1.Http, router_1.Router, utils_1.Utils, post_service_1.PostService])
                 ], PostsComponent);

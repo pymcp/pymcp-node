@@ -32,7 +32,7 @@ System.register(['angular2/core', 'angular2/http', './utils'], function(exports_
                 PostService.prototype.getPosts = function () {
                     return this.http.get('/posts');
                 };
-                PostService.prototype.newPost = function (subject, message) {
+                PostService.prototype.post = function (subject, message) {
                     var params = { subject: subject, message: message };
                     this.http.put('/posts', this.utils.params(params), this.utils.headers.www)
                         .subscribe(function (res) { return res.json(); }, function (error) { return console.log(error); });

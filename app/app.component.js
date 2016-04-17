@@ -42,7 +42,7 @@ System.register(['angular2/router', 'angular2/core', './new-post.component', './
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'pymcp-app',
-                        template: 'hello <router-outlet></router-outlet>',
+                        template: '<router-outlet></router-outlet>',
                         directives: [
                             router_1.ROUTER_DIRECTIVES
                         ],

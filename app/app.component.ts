@@ -8,7 +8,7 @@ import {PostService} from './post.service';
 
 @Component({
   selector: 'pymcp-app',
-  template: 'hello <router-outlet></router-outlet>',
+  template: '<router-outlet></router-outlet>',
   directives: [
     ROUTER_DIRECTIVES
   ],

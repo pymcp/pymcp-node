@@ -11,7 +11,7 @@ export class PostService {
     return this.http.get('/posts') 
   }
 
-  newPost(subject, message) {
+  post(subject, message) {
     var params = {subject: subject, message: message};
     this.http.put('/posts', this.utils.params(params), this.utils.headers.www) 
       .subscribe(

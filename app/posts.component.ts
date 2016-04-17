@@ -12,10 +12,13 @@ interface Post {
 
 @Component({
   template: `
-    <div>These are my posts</div>
-    <ul>
-      <li *ngFor="#post of posts">{{post.subject}}</li>
-    </ul>
+    <article *ngFor="#post of posts">
+      <h1>{{post.subject}}</h1>
+      <small>test</small>
+      <p>
+        {{post.message}}
+      </p>
+    </article>
   `
 })
 export class PostsComponent implements OnInit {
