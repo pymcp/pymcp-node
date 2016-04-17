@@ -1,8 +1,7 @@
 import {Router} from 'angular2/router';
 import {Component} from 'angular2/core';
-import {Http} from 'angular2/http';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
-import {Utils} from './utils';
+import {PostService} from './post.service';
 
 @Component({
   directives: [CORE_DIRECTIVES, FORM_DIRECTIVES],
@@ -20,14 +19,10 @@ import {Utils} from './utils';
   `
 })
 export class NewPostComponent {
-  constructor(public http: Http, private _router: Router, public utils: Utils) {
+  constructor(private _router: Router, public postService: PostService) {
   }
 
   newPost(form) {
-    this.http.put('/posts', this.utils.params(form.value.newPost), this.utils.headers.www) 
-      .subscribe(
-        res => res.json(),
-        error => console.log(error)
-      );
+    this.postService.post(form.value.newPost.subject, form.value.newPost.message);
   }
 }

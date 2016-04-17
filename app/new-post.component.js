@@ -1,4 +1,4 @@
-System.register(['angular2/router', 'angular2/core', 'angular2/http', 'angular2/common', './utils'], function(exports_1, context_1) {
+System.register(['angular2/router', 'angular2/core', 'angular2/common', './post.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/router', 'angular2/core', 'angular2/http', 'angular2/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var router_1, core_1, http_1, common_1, utils_1;
+    var router_1, core_1, common_1, post_service_1;
     var NewPostComponent;
     return {
         setters:[
@@ -20,25 +20,20 @@ System.register(['angular2/router', 'angular2/core', 'angular2/http', 'angular2/
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (http_1_1) {
-                http_1 = http_1_1;
-            },
             function (common_1_1) {
                 common_1 = common_1_1;
             },
-            function (utils_1_1) {
-                utils_1 = utils_1_1;
+            function (post_service_1_1) {
+                post_service_1 = post_service_1_1;
             }],
         execute: function() {
             NewPostComponent = (function () {
-                function NewPostComponent(http, _router, utils) {
-                    this.http = http;
+                function NewPostComponent(_router, postService) {
                     this._router = _router;
-                    this.utils = utils;
+                    this.postService = postService;
                 }
                 NewPostComponent.prototype.newPost = function (form) {
-                    this.http.put('/posts', this.utils.params(form.value.newPost), this.utils.headers.www)
-                        .subscribe(function (res) { return res.json(); }, function (error) { return console.log(error); });
+                    this.postService.post(form.value.newPost.subject, form.value.newPost.message);
                 };
                 NewPostComponent = __decorate([
                     core_1.Component({
@@ -46,7 +41,7 @@ System.register(['angular2/router', 'angular2/core', 'angular2/http', 'angular2/
                         selector: 'new-post',
                         template: "\n    <form #f=\"ngForm\" (submit)=\"newPost(f)\">\n      <div ngControlGroup=\"newPost\">\n        <h1>New Post</h1>\n        <small>Create a new post</small>\n        <input name=\"subject\" ngControl=\"subject\"/>\n        <textarea name=\"message\" ngControl=\"message\"></textarea>\n        <input type=\"submit\" value=\"Post\"/>\n      </div>\n    </form>\n  "
                     }), 
-                    __metadata('design:paramtypes', [http_1.Http, router_1.Router, utils_1.Utils])
+                    __metadata('design:paramtypes', [router_1.Router, post_service_1.PostService])
                 ], NewPostComponent);
                 return NewPostComponent;
             }());

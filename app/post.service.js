@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', './utils'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1, context_
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1;
+    var core_1, http_1, utils_1;
     var PostService;
     return {
         setters:[
@@ -19,18 +19,27 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1, context_
             },
             function (http_1_1) {
                 http_1 = http_1_1;
+            },
+            function (utils_1_1) {
+                utils_1 = utils_1_1;
             }],
         execute: function() {
             PostService = (function () {
-                function PostService(http) {
+                function PostService(http, utils) {
                     this.http = http;
+                    this.utils = utils;
                 }
                 PostService.prototype.getPosts = function () {
                     return this.http.get('/posts');
                 };
+                PostService.prototype.newPost = function (subject, message) {
+                    var params = { subject: subject, message: message };
+                    this.http.put('/posts', this.utils.params(params), this.utils.headers.www)
+                        .subscribe(function (res) { return res.json(); }, function (error) { return console.log(error); });
+                };
                 PostService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [http_1.Http])
+                    __metadata('design:paramtypes', [http_1.Http, utils_1.Utils])
                 ], PostService);
                 return PostService;
             }());
