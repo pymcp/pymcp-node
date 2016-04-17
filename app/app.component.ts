@@ -2,15 +2,17 @@ import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router'
 import {Component} from 'angular2/core';
 import {NewPostComponent} from './new-post.component';
 import {PostsComponent} from './posts.component';
+import {NavComponent} from './nav.component';
 import {Utils} from './utils';
 import {HTTP_PROVIDERS} from 'angular2/http';
 import {PostService} from './post.service';
 
 @Component({
   selector: 'pymcp-app',
-  template: '<router-outlet></router-outlet>',
+  template: '<navigation></navigation><router-outlet></router-outlet>',
   directives: [
-    ROUTER_DIRECTIVES
+    ROUTER_DIRECTIVES,
+    NavComponent 
   ],
   providers: [
     HTTP_PROVIDERS,

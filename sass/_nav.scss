@@ -1,0 +1,19 @@
+main {
+  nav {
+    float: left;
+    width: $global-width - $article-width - ($gutter-h * 2); 
+
+    >a {
+      display: block;
+    }
+
+    @include tablet {
+      width: $global-width-t - $article-width-t - ($gutter-h * 2); 
+    }
+
+    @include phone {
+      width: 100%;
+      float: none;
+    }
+  }
+}

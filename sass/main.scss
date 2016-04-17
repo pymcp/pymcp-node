@@ -2,6 +2,7 @@
 @import '_variables';
 @import '_animations';
 @import '_logo';
+@import '_nav';
 
 * {
   box-sizing: border-box;
@@ -39,20 +40,6 @@ body {
 
     *:first-child {
       margin-top: 0;
-    }
-
-    >nav {
-      float: left;
-      width: $global-width - $article-width - ($gutter-h * 2); 
-
-      @include tablet {
-        width: $global-width-t - $article-width-t - ($gutter-h * 2); 
-      }
-
-      @include phone {
-        width: 100%;
-        float: none;
-      }
     }
 
     &::before {

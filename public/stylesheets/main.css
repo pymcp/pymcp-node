@@ -26,6 +26,19 @@
   #logo .draw {
     visibility: hidden; }
 
+main nav {
+  float: left;
+  width: 256px; }
+  main nav > a {
+    display: block; }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    main nav {
+      width: 200px; } }
+  @media (max-width: 767px) {
+    main nav {
+      width: 100%;
+      float: none; } }
+
 * {
   box-sizing: border-box; }
 
@@ -53,16 +66,6 @@ body {
         width: 100%; } }
     body main *:first-child {
       margin-top: 0; }
-    body main > nav {
-      float: left;
-      width: 256px; }
-      @media (min-width: 768px) and (max-width: 1023px) {
-        body main > nav {
-          width: 200px; } }
-      @media (max-width: 767px) {
-        body main > nav {
-          width: 100%;
-          float: none; } }
     body main::before {
       content: "";
       display: block;
