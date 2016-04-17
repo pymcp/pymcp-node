@@ -79,7 +79,8 @@ body {
     background-color: #FFF;
     border-radius: 5px 5px 5px 5px;
     padding: 10px 10px;
-    box-shadow: 0px 0px 2px #002C91; }
+    box-shadow: 0px 0px 2px #002C91;
+    margin-bottom: 1em; }
     @media (min-width: 768px) and (max-width: 1023px) {
       body article {
         width: 480px; } }
