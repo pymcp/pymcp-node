@@ -1,0 +1,13 @@
+{
+  "http": {
+    "port": 3000
+  },
+  "facebook": {
+    "clientID": "",
+    "clientSecret": "",
+    "callbackURL": ""
+  },
+  "mongo": {
+    "uri": ""
+  }
+}
