@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 var nconf = require('nconf');
-mongoose.connect(nconf.get('mongo:uri'));
 
 var postSchema = mongoose.Schema({
   subject: String,
