@@ -2,10 +2,23 @@ var mongoose = require('mongoose');
 var nconf = require('nconf');
 mongoose.connect(nconf.get('mongo:uri'));
 
-var Post = mongoose.model('Post', {subject: String, message: String}, 'posts');
-var User = mongoose.model('Users', {name: String, facebookId: String});
+var postSchema = mongoose.Schema({
+  subject: String,
+  message: String
+});
+
+var userSchema = mongoose.Schema({
+  facebook: {
+    name: String,
+    token: String,
+    id: String
+  }
+});
+userSchema.methods.portrait = function() {
+  return '//graph.facebook.com/v2.6/' + this.facebook.id + '/picture';
+};
 
 module.exports = {
-  Post: Post,
-  User: User
+  Post: mongoose.model('Post', postSchema), 
+  User: mongoose.model('User', userSchema) 
 };

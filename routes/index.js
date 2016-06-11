@@ -10,4 +10,8 @@ router.get('/new-post', function(req, res, next) {
   res.render('index', { title: 'home' });
 });
 
+router.get('/photo', function(req, res, next) {
+  res.json({photo: req.user.portrait()});
+});
+
 module.exports = router;
